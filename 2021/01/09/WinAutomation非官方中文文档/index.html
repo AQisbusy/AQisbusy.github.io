@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="不晓得在忙什么的阿邱">
+
+
+
+
+
+<title>WinAutomation非官方中文文档（基于v9.2.1） | 不晓得在忙什么的阿邱</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Home Page</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                    <a class="menu-item" href="/tags">Tag Cloud</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Home Page</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                    <a class="menu-item" href="/tags">Tag Cloud</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">WinAutomation非官方中文文档（基于v9.2.1）</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">不晓得在忙什么的阿邱</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 9, 2021&nbsp;&nbsp;21:03:40</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Doc/">Doc</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>WinAutomation是一款基于Windows平台的桌面自动化软件， 用于自动执行所有重复性任务。 能自动启动和使用应用程序， 如自动填写数据、自动操作各种软件。</p>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://www.winautomation.com/">https://www.winautomation.com/</a></p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://docs.winautomation.com/en/winautomation.html">https://docs.winautomation.com/en/winautomation.html</a></p>
+<hr>
+<h2 id="1-WinAutomation"><a href="#1-WinAutomation" class="headerlink" title="1. WinAutomation"></a>1. WinAutomation</h2><h3 id="1-1-About-Softomotive"><a href="#1-1-About-Softomotive" class="headerlink" title="1.1 About Softomotive"></a>1.1 About Softomotive</h3><h3 id="1-2-Software-Requirements"><a href="#1-2-Software-Requirements" class="headerlink" title="1.2 Software Requirements"></a>1.2 Software Requirements</h3><h3 id="1-3-Installation-Guide"><a href="#1-3-Installation-Guide" class="headerlink" title="1.3 Installation Guide"></a>1.3 Installation Guide</h3><h2 id="2-Release-History"><a href="#2-Release-History" class="headerlink" title="2. Release History"></a>2. Release History</h2><h2 id="3-Building-a-Simple-Process-创建一个简单的流程"><a href="#3-Building-a-Simple-Process-创建一个简单的流程" class="headerlink" title="3. Building a Simple Process 创建一个简单的流程"></a>3. Building a Simple Process 创建一个简单的流程</h2><h3 id="3-1-Create-a-simple-Process-Part-1"><a href="#3-1-Create-a-simple-Process-Part-1" class="headerlink" title="3.1 Create a simple Process - Part 1"></a>3.1 Create a simple Process - Part 1</h3><h3 id="3-2-Create-a-simple-Process-Part-2"><a href="#3-2-Create-a-simple-Process-Part-2" class="headerlink" title="3.2 Create a simple Process - Part 2"></a>3.2 Create a simple Process - Part 2</h3><h3 id="3-3-Create-a-simple-Process-Part-3"><a href="#3-3-Create-a-simple-Process-Part-3" class="headerlink" title="3.3 Create a simple Process - Part 3"></a>3.3 Create a simple Process - Part 3</h3><h2 id="4-The-Console-控制台"><a href="#4-The-Console-控制台" class="headerlink" title="4. The Console 控制台"></a>4. The Console 控制台</h2><p>控制台是启动WinAutomation时看到的第一个窗口。 从这里，您将访问该软件的所有其他部分。 在这里，您可以执行除构建或编辑流程以外的大多数任务。</p>
+<p>窗口的7个部分是：</p>
+<p><img src="https://docs.winautomation.com/en/image/15ee9bd5882cd5.png"></p>
+<ol>
+<li>处理标签</li>
+<li>触发器选项卡</li>
+<li>计划程序选项卡</li>
+<li>日志标签</li>
+<li>选项标签</li>
+<li>文件夹窗格：在此窗格中，您可以查看您的进程文件夹结构。</li>
+<li>进程窗格：在此窗格中，您可以查看保存在特定文件夹中的所有进程。 您可以在“进程”的“文件夹”窗格中单击一个文件夹，并且其所有进程都将在“进程”的窗格中列出。</li>
+</ol>
+<h3 id="4-1-Processes-流程"><a href="#4-1-Processes-流程" class="headerlink" title="4.1 Processes 流程"></a>4.1 Processes 流程</h3><p>在WinAutomation控制台的“进程”选项卡中，您将找到管理进程的所有选项，下面的主题对此进行了详细说明。</p>
+<h4 id="4-1-1-Process-Tab-流程标签"><a href="#4-1-1-Process-Tab-流程标签" class="headerlink" title="4.1.1 Process Tab 流程标签"></a>4.1.1 Process Tab 流程标签</h4><p>“进程”选项卡具有四个菜单组和两个窗格，如下所示：</p>
+<p><img src="https://docs.winautomation.com/en/image/15ee9bd5887d0c.png"></p>
+<ol>
+<li><p>Creat - 建立</p>
+<p> 在创建组中，您可以创建一个新流程，创建一个新文件夹以将您的流程保存在控制台中，将一个流程导入/导出一个流程。</p>
+</li>
+<li><p>Edit - 编辑</p>
+<p> 在“编辑”组中，可以通过单击“流程设计器”选项在“流程设计器”中编辑一个流程，查看其属性，删除一个流程，在您当前所在的文件夹中选择“所有流程”，重命名/剪切/复制/粘贴过程并启用或禁用它。</p>
+</li>
+<li><p>Execution - 执行</p>
+<p> 在执行组中，您可以从控制台执行-运行-启动进程，并在完成之前随时停止它。</p>
+</li>
+<li><p>Find - 查找</p>
+<p> 在“查找”组中，您只需输入流程名称中包含的一些文本，即可在“流程”文件夹结构中搜索您的流程。</p>
+</li>
+<li><p>Compiler - 编译器</p>
+<p> 使用专业版，您可以创建可以在任何计算机上运行的独立可执行文件。我们稍后将进一步讨论可执行文件。</p>
+</li>
+<li><p>The Processes Folders List pane - “进程文件夹列表”窗格</p>
+<p> 在此窗格中，您可以查看已保存的Processes文件夹结构。</p>
+</li>
+<li><p>The Processes List pane - “进程列表”窗格</p>
+<p> 在此窗格中，您可以查看保存在特定文件夹中的所有进程。您可以在“进程”的“文件夹”窗格中单击一个文件夹，并且其所有进程都将在“进程”的窗格中列出。如果您根据需要的显示单击并拖动它们，则可以重新排列“过程列表”窗格中的列。</p>
+</li>
+</ol>
+<h4 id="4-1-2-Create-a-new-Folder-新建一个文件夹"><a href="#4-1-2-Create-a-new-Folder-新建一个文件夹" class="headerlink" title="4.1.2 Create a new Folder 新建一个文件夹"></a>4.1.2 Create a new Folder 新建一个文件夹</h4><p>要在控制台中创建新文件夹：</p>
+<p>-在“进程”选项卡的“创建”菜单组中双击“新建文件夹”选项</p>
+<p>或者</p>
+<p>-在“文件夹列表”窗格中右键单击，然后选择“新建文件夹”。</p>
+<p>新文件夹可以重命名。</p>
+<p><img src="https://docs.winautomation.com/en/image/15ee9bd588ae75.png"></p>
+<p>任何新文件夹都将在“文件夹列表”窗格中当前选择的父文件夹下创建为子文件夹。 因此，无法在与“我的进程”相同的级别上创建另一个文件夹，因为该文件夹是根文件夹。</p>
+<p>可以通过在“文件夹列表”窗格中将文件夹拖放到其他文件夹中来重新排列文件夹结构。 当然，在同一父文件夹下不可能有两个具有相同名称的文件夹。</p>
+<h4 id="4-1-3-Create-a-new-Process-新建一个流程"><a href="#4-1-3-Create-a-new-Process-新建一个流程" class="headerlink" title="4.1.3 Create a new Process 新建一个流程"></a>4.1.3 Create a new Process 新建一个流程</h4><p>您可以通过按Ctrl + N或单击“进程”选项卡上的“新建进程”按钮<br><img src="https://docs.winautomation.com/en/image/15ee9bd588e332.png"><br>来创建新进程。 这将打开“创建新流程”对话框，提示输入新流程的名称。</p>
+<p><img src="https://docs.winautomation.com/en/image/15ee9bd5890a26.png"></p>
+<p>设置进程名称后，您有三个选择。</p>
+<p>您可以打开：</p>
+<p><img src="https://docs.winautomation.com/en/image/15ee9bd5895012.png"></p>
+<ol>
+<li>流程设计器，然后通过在工作区中拖放动作来开始构建流程。</li>
+</ol>
+<p><img src="https://docs.winautomation.com/en/image/15ee9bd58a165f.png"><br>2. 您可以跳转到“宏记录器”以记录您的鼠标单击和击键，或智能记录任何桌面活动，然后返回到“流程设计器”，或者</p>
+<p> <img src="https://docs.winautomation.com/en/image/15ee9bd58a5357.png"><br>3.最后，您可以打开Web Recorder，并开始在浏览器窗口中导航，在该窗口中将记录所有Web活动，并在完成记录并返回到Process Designer时将其转换为动作。</p>
+<p>请注意，您始终可以进入“流程设计器”并从“流程设计器”窗口中访问“记录工具”（Macro Recorder和Web Recorder）。这些工具可在Process Designer的工具栏中和“工具”菜单下使用。</p>
+<p>要在以后重新编辑流程，请双击该流程，或选择它并单击“流程”选项卡上的“流程设计器”按钮<img src="https://docs.winautomation.com/en/image/15ee9bd5895012.png">或右键单击该流程并选择“编辑流程”。</p>
+<h4 id="4-1-4-Move-Processes-Folders-移动流程和文件夹"><a href="#4-1-4-Move-Processes-Folders-移动流程和文件夹" class="headerlink" title="4.1.4 Move Processes/Folders 移动流程和文件夹"></a>4.1.4 Move Processes/Folders 移动流程和文件夹</h4><p>“文件夹列表”和“进程列表”窗格均使用“拖放”，因此移动文件夹和进程很容易。</p>
+<p>只需在文件夹列表窗格中选择要移动的文件夹并将其放在目标文件夹中即可。 如果要移动流程，请在“流程列表”窗格中单击该流程并将其拖到适当的文件夹中。</p>
+<p>您始终可以剪切（或复制）该过程并将其粘贴到所需的文件夹中。</p>
+<p><img src="https://docs.winautomation.com/en/image/15ee9bd58a8f72.png"></p>
+<h4 id="4-1-5-Import-Export-a-Process-导入与导出流程"><a href="#4-1-5-Import-Export-a-Process-导入与导出流程" class="headerlink" title="4.1.5 Import/Export a Process 导入与导出流程"></a>4.1.5 Import/Export a Process 导入与导出流程</h4><p>WinAutomation将所有进程存储在数据库中。 因此，没有明显的要复制或移动的过程文件。 要将一个进程复制到另一台装有WinAutomation的计算机上，请导出该进程-这将创建一个扩展名为.waj的文件。</p>
+<p>可以使用WinAutomation将该文件移动到另一台计算机，然后导入到其数据库中。 现在，新计算机还将具有该进程的副本。 这是通过“流程”选项卡中的“导入和导出流程”选项完成的。</p>
+<p><img src="https://docs.winautomation.com/en/image/15ee9bd58ac2fd.png"></p>
+<p>导入过程：</p>
+<p>要在WinAutomation控制台中导入进程，请启动WinAutomation控制台，然后从“进程”选项卡的“创建”子菜单组中选择“导入进程”选项。这样做后，将出现一个对话框，提示您选择要导入的进程文件（* .waj）。</p>
+<p>选择文件并按下“打开”按钮后，对话框窗口将关闭，并且在WinAutomation控制台中，在“过程”面板中，您将看到选择导入的过程。</p>
+<p>汇出程序：</p>
+<p>要导出流程，请找到要导出的流程，然后从“流程列表”窗格中，然后在“创建”菜单组中选择“导出流程”选项。这样做后，将出现一个对话框，提示您选择要将流程导出到的文件夹。</p>
+<p>一旦选择了文件夹并在对话框中按下“确定”按钮，对话框窗口将关闭，并且在您选择的文件夹内将创建一个新文件，其名称以Process的名称命名，并带有* .waj扩展名。</p>
+<p>如果进程包含带有密码的操作（例如，连接到Ancora），则将要求输入密码以加密上述密码并增强导出文件的安全性。首次执行导入的流程以及每次对其进行编辑时，都需要此密码。</p>
+<p><img src="https://docs.winautomation.com/en/image/15ee9bd58af40b.png"></p>
+<h4 id="4-1-6-Run-Stop-a-Process-运行与停止流程"><a href="#4-1-6-Run-Stop-a-Process-运行与停止流程" class="headerlink" title="4.1.6 Run/Stop a Process 运行与停止流程"></a>4.1.6 Run/Stop a Process 运行与停止流程</h4><p>运行/停止流程<br>您可以通过单击绿色箭头图标“开始”来手动启动流程，或者右键单击流程并选择运行流程。您要启动的进程必须突出显示。如果没有突出显示“进程”，则“开始”“<img src="https://docs.winautomation.com/en/image/15ee9bd58b4593.png">”和“停止”“<img src="https://docs.winautomation.com/en/image/15ee9bd58b8ad3.png">”选项不可用。</p>
+<p><img src="https://docs.winautomation.com/en/image/15ee9bd58bae6e.png"></p>
+<p>如果启动已运行的进程，则默认情况下将启动该进程的另一个实例。如果您不希望某个流程能够同时运行多个实例，则可以通过该流程的“流程属性”对话框的“并发策略”选项卡来指定。您可以通过单击“进程”选项卡中的“停止”图标，或右键单击“进程”并选择“停止进程”来停止正在运行的进程。</p>
+<p>您也可以通过单击“通知弹出窗口”上的“停止流程”链接来停止正在运行的流程的一个实例，尽管这只会关闭该流程的该实例。</p>
+<p>您也可以通过单击“通知弹出窗口”上的“停止流程”链接来停止正在运行的流程的一个实例，尽管这只会关闭该流程的该实例。</p>
+<p>最后，您可以通过输入Ctrl + Alt + T同时关闭所有正在运行的进程。此HotKey是预定义的触发器，如果​​WinAutomation正在控制您的鼠标，因此您不能单击任何东西（即“紧急按钮”），则特别有用。您可以在“选项&gt;设置&gt;常规”选项卡中更改此热键组合。</p>
+<h4 id="4-1-7-The-Notification-Popup-Window-通知弹窗"><a href="#4-1-7-The-Notification-Popup-Window-通知弹窗" class="headerlink" title="4.1.7 The Notification Popup Window 通知弹窗"></a>4.1.7 The Notification Popup Window 通知弹窗</h4><h4 id="4-1-8-Enable-Disable-a-Process-启用与禁用流程"><a href="#4-1-8-Enable-Disable-a-Process-启用与禁用流程" class="headerlink" title="4.1.8 Enable/Disable a Process 启用与禁用流程"></a>4.1.8 Enable/Disable a Process 启用与禁用流程</h4><h4 id="4-1-9-Find-Process-寻找流程"><a href="#4-1-9-Find-Process-寻找流程" class="headerlink" title="4.1.9 Find Process 寻找流程"></a>4.1.9 Find Process 寻找流程</h4><h3 id="4-2-Process-Properties"><a href="#4-2-Process-Properties" class="headerlink" title="4.2 Process Properties"></a>4.2 Process Properties</h3><h3 id="4-3-Triggers-触发器"><a href="#4-3-Triggers-触发器" class="headerlink" title="4.3 Triggers 触发器"></a>4.3 Triggers 触发器</h3><h3 id="4-4-Scheduler-计划"><a href="#4-4-Scheduler-计划" class="headerlink" title="4.4 Scheduler 计划"></a>4.4 Scheduler 计划</h3><h3 id="4-5-Logs-日志"><a href="#4-5-Logs-日志" class="headerlink" title="4.5 Logs 日志"></a>4.5 Logs 日志</h3><h3 id="4-6-Options-属性"><a href="#4-6-Options-属性" class="headerlink" title="4.6 Options 属性"></a>4.6 Options 属性</h3><h3 id="4-7-Add-ons-插件"><a href="#4-7-Add-ons-插件" class="headerlink" title="4.7 Add-ons 插件"></a>4.7 Add-ons 插件</h3><h3 id="4-8-WinAutomation-on-the-System-Tray"><a href="#4-8-WinAutomation-on-the-System-Tray" class="headerlink" title="4.8 WinAutomation on the System Tray"></a>4.8 WinAutomation on the System Tray</h3><h3 id="4-9-Status-Monitor-Window"><a href="#4-9-Status-Monitor-Window" class="headerlink" title="4.9 Status Monitor Window"></a>4.9 Status Monitor Window</h3><h3 id="4-10-Generate-EXE"><a href="#4-10-Generate-EXE" class="headerlink" title="4.10 Generate EXE"></a>4.10 Generate EXE</h3><h3 id="4-11-User-Account-用户账户"><a href="#4-11-User-Account-用户账户" class="headerlink" title="4.11 User Account 用户账户"></a>4.11 User Account 用户账户</h3><h2 id="5-The-Process-Designer-流程设计器"><a href="#5-The-Process-Designer-流程设计器" class="headerlink" title="5. The Process Designer 流程设计器"></a>5. The Process Designer 流程设计器</h2><h2 id="6-Best-Practices-案例"><a href="#6-Best-Practices-案例" class="headerlink" title="6. Best Practices 案例"></a>6. Best Practices 案例</h2><h2 id="7-Preconfiguration-预配置"><a href="#7-Preconfiguration-预配置" class="headerlink" title="7. Preconfiguration 预配置"></a>7. Preconfiguration 预配置</h2><h2 id="8-Actions-Reference-动作参考"><a href="#8-Actions-Reference-动作参考" class="headerlink" title="8. Actions Reference 动作参考"></a>8. Actions Reference 动作参考</h2><h1 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h1><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>不晓得在忙什么的阿邱</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>如转载请注明出处。</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/WinAutomation/"># WinAutomation</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/08/08/hello-world/">Hello World</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 不晓得在忙什么的阿邱 
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
