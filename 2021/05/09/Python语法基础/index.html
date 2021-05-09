@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="不晓得在忙什么的阿邱">
+
+
+
+
+
+<title>Python语法基础 | 不晓得在忙什么的阿邱</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Home Page</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                    <a class="menu-item" href="/tags">Tag Cloud</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Home Page</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                    <a class="menu-item" href="/tags">Tag Cloud</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Python语法基础</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">不晓得在忙什么的阿邱</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 9, 2021&nbsp;&nbsp;22:07:50</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Learning-Notes/">Learning Notes</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Python语法基础"><a href="#Python语法基础" class="headerlink" title="Python语法基础"></a>Python语法基础</h1><p>Python是近年来备受关注的一种面向对象开发语言。本文是后续文章的基础</p>
+<p>主要的参考书：</p>
+<p>开发和运行环境很重要。</p>
+<p>下载和安装详见以下文章：</p>
+<p>常用网站：</p>
+<p><a target="_blank" rel="noopener" href="https://www.python.org/">Python官方网站</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/">Python官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.anaconda.com/">Anaconda官方网站</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.anaconda.com/">Anaconda官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/">菜鸟教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">廖雪峰博客 (Python部分)</a></p>
+<h2 id="Chapter-00"><a href="#Chapter-00" class="headerlink" title="Chapter-00:"></a>Chapter-00:</h2><p>注释</p>
+<p>运算符</p>
+<h2 id="Chapter-01-6种数据类型"><a href="#Chapter-01-6种数据类型" class="headerlink" title="Chapter-01: 6种数据类型"></a>Chapter-01: 6种数据类型</h2><h3 id="Section-01-数字型-int-float-Bool-complex"><a href="#Section-01-数字型-int-float-Bool-complex" class="headerlink" title="Section-01: 数字型 (int, float, Bool, complex)"></a>Section-01: 数字型 (int, float, Bool, complex)</h3><h4 id="Subject-01-整型-int"><a href="#Subject-01-整型-int" class="headerlink" title="Subject-01: 整型 int"></a>Subject-01: 整型 int</h4><h4 id="Subject-02-浮点型-float"><a href="#Subject-02-浮点型-float" class="headerlink" title="Subject-02: 浮点型 float"></a>Subject-02: 浮点型 float</h4><h4 id="Subject-03-布尔型-Bool"><a href="#Subject-03-布尔型-Bool" class="headerlink" title="Subject-03: 布尔型 Bool"></a>Subject-03: 布尔型 Bool</h4><h4 id="Subject-04-复数型-complex"><a href="#Subject-04-复数型-complex" class="headerlink" title="Subject-04: 复数型 complex"></a>Subject-04: 复数型 complex</h4><h3 id="Section-02-字符串-str"><a href="#Section-02-字符串-str" class="headerlink" title="Section-02: 字符串 (str)"></a>Section-02: 字符串 (str)</h3><h3 id="Section-03-列表-list"><a href="#Section-03-列表-list" class="headerlink" title="Section-03: 列表 (list)"></a>Section-03: 列表 (list)</h3><p>列表的包容性很强，一个列表中的元素可以是数字型、字符串、列表、字典、元组、集合，或者它们混合起来。</p>
+<h4 id="Subject-01-创建列表"><a href="#Subject-01-创建列表" class="headerlink" title="Subject-01: 创建列表"></a>Subject-01: 创建列表</h4><p>创建空列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_list = []</span><br></pre></td></tr></table></figure>
+
+<p>创建非空列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_list2 = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="string">&#x27;China&#x27;</span>,<span class="string">&#x27;中国&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>创建多维列表（列表嵌套）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_list3 = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>]]</span><br></pre></td></tr></table></figure>
+
+<h4 id="Subject-02-访问列表中的元素"><a href="#Subject-02-访问列表中的元素" class="headerlink" title="Subject-02: 访问列表中的元素"></a>Subject-02: 访问列表中的元素</h4><p>在列表中，每个元素对应一个索引，索引从0开始，以 new_list2 为例，’a’ 的索引是 0，’b’ 的索引是 1，以此类推。已知列表中元素的索引可以访问元素值，反之亦可。</p>
+<p>访问单个元素：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">print(new_list2[<span class="number">1</span>])</span><br><span class="line"><span class="comment"># 结果是 b 。</span></span><br><span class="line">print(type(new_list2[<span class="number">1</span>]))</span><br><span class="line"><span class="comment"># 查看元素的类型，结果是 &lt;class &#x27;str&#x27;&gt; 。</span></span><br><span class="line"></span><br><span class="line">print(new_list3[<span class="number">1</span>][<span class="number">1</span>])</span><br><span class="line"><span class="comment"># 结果是 b 。</span></span><br><span class="line"><span class="comment"># 对于列表嵌套，需要逐层分析：母列表new_list3中包含两个元素（两个子列表）——[1,2,3]和[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]，其中[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]的索引是1，也就是print中第一个[1]的含义；在子列表[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]中，b的索引是1，也就是print中第二个[1]的含义。</span></span><br><span class="line">print(type(new_list3[<span class="number">1</span>][<span class="number">1</span>]))</span><br><span class="line"><span class="comment"># 查看元素的类型，结果是 &lt;class &#x27;str&#x27;&gt; 。</span></span><br></pre></td></tr></table></figure>
+
+<p>列表截取（切片）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(new_list2[<span class="number">1</span>:<span class="number">2</span>])</span><br><span class="line"><span class="comment"># 结果是 [&#x27;b&#x27;] 。</span></span><br><span class="line">print(type(new_list2[<span class="number">1</span>:<span class="number">2</span>]))</span><br><span class="line"><span class="comment"># 查看元素的类型，结果是 &lt;class &#x27;list&#x27;&gt; 。</span></span><br><span class="line"><span class="comment"># 用切片的方式与用访问单个元素的方式，获得的元素类型不同。</span></span><br><span class="line"></span><br><span class="line">print(new_list2[<span class="number">1</span>:<span class="number">5</span>])</span><br><span class="line"><span class="comment"># 正向，结果是 [&#x27;b&#x27;,1,2,3] 。</span></span><br><span class="line"></span><br><span class="line">print(new_list2[<span class="number">5</span>:<span class="number">1</span>:<span class="number">-1</span>])</span><br><span class="line"><span class="comment"># 反向，结果是 [4,3,2,1] 。</span></span><br></pre></td></tr></table></figure>
+
+<p>列表遍历：</p>
+<p>已知列表元素值，查找元素位置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">new_list2.index(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 2为要查找位置的元素值，print上式可以得出元素所在位置索引。若存在重复元素值，则只能返回第一个的索引；若想得到所有重复值的索引，需要用for循环遍历列表。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(new_list2)):</span><br><span class="line">    <span class="keyword">if</span> new_list2[i] == <span class="number">2</span>:</span><br><span class="line">        print(i)</span><br><span class="line"><span class="comment"># 执行后的结果为 3 ，因为new_list2中只有一个2，如果还有其他的2，位置索引也会一起被返回。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Subject-03-修改列表"><a href="#Subject-03-修改列表" class="headerlink" title="Subject-03: 修改列表"></a>Subject-03: 修改列表</h4><p>增加元素：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">new_list.append(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="comment"># 将元素a加入new_list中，但如果想要元素真的进入空列表中，还需要有一个新变量来承接，将增加元素后的new_list的值赋给新变量。</span></span><br><span class="line">new_list4 = new_list</span><br><span class="line">print(new_list4)</span><br><span class="line"><span class="comment"># 此时打印的结果是 [&#x27;a&#x27;] 。</span></span><br><span class="line"></span><br><span class="line">new_list4.insert(<span class="number">0</span>,<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">new_list5 = new_list4</span><br><span class="line">print(new_list5)</span><br><span class="line"><span class="comment"># 在列表中间插入元素用insert，此时打印结果是 [&#x27;b&#x27;,&#x27;a&#x27;]。0代表要插入位置的序列，&#x27;b&#x27;代表要插入的元素值，插入之前&#x27;a&#x27;的序列为0，插入后&#x27;b&#x27;占了&#x27;a&#x27;的序列，&#x27;a&#x27;后移一位。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>删除元素：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> new_list2[<span class="number">3</span>]</span><br><span class="line"><span class="keyword">del</span> new_list2[<span class="number">-1</span>]</span><br><span class="line"><span class="comment"># 3和-1是索引</span></span><br></pre></td></tr></table></figure>
+
+<p>替换元素：</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="Section-04-元组-tuple"><a href="#Section-04-元组-tuple" class="headerlink" title="Section-04: 元组 (tuple)"></a>Section-04: 元组 (tuple)</h3><h4 id="Subject-01-创建元组"><a href="#Subject-01-创建元组" class="headerlink" title="Subject-01: 创建元组"></a>Subject-01: 创建元组</h4><p>创建空元组：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_tuple = <span class="string">&#x27;&#x27;</span>,new_tuple1 = ()</span><br></pre></td></tr></table></figure>
+
+<p>创建非空单一元素元组：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_tuple2 = <span class="string">&#x27;a&#x27;</span>,new_tuple3 = (<span class="string">&#x27;a&#x27;</span>,)</span><br></pre></td></tr></table></figure>
+
+<p>创建非空多元素元组：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_tuple4 = <span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;4&#x27;</span>new_tuple5 = (<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;4&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Subject-02-访问元组中的元素"><a href="#Subject-02-访问元组中的元素" class="headerlink" title="Subject-02: 访问元组中的元素"></a>Subject-02: 访问元组中的元素</h4><p>访问单个元素：</p>
+<p>元组截取（切片）：</p>
+<h4 id="Subject-03-修改元组"><a href="#Subject-03-修改元组" class="headerlink" title="Subject-03: 修改元组"></a>Subject-03: 修改元组</h4><p>增加</p>
+<p>删除</p>
+<p>替换</p>
+<p>根据性质，其实元组是不能被修改的，但我们元组切片来实现。</p>
+<h3 id="Section-04-字典-dict"><a href="#Section-04-字典-dict" class="headerlink" title="Section-04: 字典 (dict)"></a>Section-04: 字典 (dict)</h3><h3 id="Section-06-集合-set"><a href="#Section-06-集合-set" class="headerlink" title="Section-06: 集合 (set)"></a>Section-06: 集合 (set)</h3><p>Section-07: 6种数据类型间的转换</p>
+<p>整型 to 浮点型</p>
+<p>操作：</p>
+<p>注意：</p>
+<p>浮点型 to 整型</p>
+<p>操作：</p>
+<p>注意：</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center"><strong>列表 list</strong></th>
+<th align="center"><strong>元组 tuple</strong></th>
+<th align="center"><strong>字典 dict</strong></th>
+<th align="center"><strong>集合 set</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">允许为空</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="left">允许进行连接组合</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="left">允许删除或者修改元素</td>
+<td align="center">yes</td>
+<td align="center">no</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="left">允许键重复</td>
+<td align="center">\</td>
+<td align="center">\</td>
+<td align="center">no</td>
+<td align="center">\</td>
+</tr>
+<tr>
+<td align="left">允许元素 \ 值重复</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left">有序列关系</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">no</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left">元素必须类型相同</td>
+<td align="center">no</td>
+<td align="center">no</td>
+<td align="center">no</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left">允许使用索引访问元素</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">\</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left">可切片</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+<td align="center">no</td>
+<td align="center">no</td>
+</tr>
+</tbody></table>
+<h2 id="Chapter-02-5大基本语句"><a href="#Chapter-02-5大基本语句" class="headerlink" title="Chapter-02: 5大基本语句"></a>Chapter-02: 5大基本语句</h2><h3 id="Section-01-赋值语句"><a href="#Section-01-赋值语句" class="headerlink" title="Section-01: 赋值语句"></a>Section-01: 赋值语句</h3><h3 id="Section-02-输入输出语句"><a href="#Section-02-输入输出语句" class="headerlink" title="Section-02: 输入输出语句"></a>Section-02: 输入输出语句</h3><h3 id="Section-03-条件判断语句"><a href="#Section-03-条件判断语句" class="headerlink" title="Section-03: 条件判断语句"></a>Section-03: 条件判断语句</h3><h3 id="Section-04-循环语句"><a href="#Section-04-循环语句" class="headerlink" title="Section-04: 循环语句"></a>Section-04: 循环语句</h3><h3 id="Section-05-异常处理语句"><a href="#Section-05-异常处理语句" class="headerlink" title="Section-05: 异常处理语句"></a>Section-05: 异常处理语句</h3><h2 id="Chapter-03-4类基本操作"><a href="#Chapter-03-4类基本操作" class="headerlink" title="Chapter-03: 4类基本操作"></a>Chapter-03: 4类基本操作</h2><h3 id="Section-01-数据操作"><a href="#Section-01-数据操作" class="headerlink" title="Section-01: 数据操作"></a>Section-01: 数据操作</h3><h3 id="Section-02-文件操作"><a href="#Section-02-文件操作" class="headerlink" title="Section-02: 文件操作"></a>Section-02: 文件操作</h3><p>r</p>
+<p>w</p>
+<p>r+</p>
+<p>w+</p>
+<h3 id="Section-03-模块操作"><a href="#Section-03-模块操作" class="headerlink" title="Section-03: 模块操作"></a>Section-03: 模块操作</h3><p>os模块</p>
+<p>math模块</p>
+<h3 id="Section-04-并发操作"><a href="#Section-04-并发操作" class="headerlink" title="Section-04: 并发操作"></a>Section-04: 并发操作</h3><h2 id="Chapter-04-3个基本概念"><a href="#Chapter-04-3个基本概念" class="headerlink" title="Chapter-04: 3个基本概念"></a>Chapter-04: 3个基本概念</h2><h3 id="Section-01-面向对象"><a href="#Section-01-面向对象" class="headerlink" title="Section-01: 面向对象"></a>Section-01: 面向对象</h3><h3 id="Section-02-结构化"><a href="#Section-02-结构化" class="headerlink" title="Section-02: 结构化"></a>Section-02: 结构化</h3><h3 id="Section-03-虚拟环境"><a href="#Section-03-虚拟环境" class="headerlink" title="Section-03: 虚拟环境"></a>Section-03: 虚拟环境</h3>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>不晓得在忙什么的阿邱</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>如转载请注明出处。</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Python/"># Python</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/01/09/WinAutomation%E9%9D%9E%E5%AE%98%E6%96%B9%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/">WinAutomation非官方中文文档（基于v9.2.1）</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 不晓得在忙什么的阿邱 
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
