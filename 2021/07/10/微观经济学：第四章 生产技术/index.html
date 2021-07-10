@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="不晓得在忙什么的阿邱">
+
+
+
+
+
+<title>微观经济学：第四章 生产技术 | 不晓得在忙什么的阿邱</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Home Page</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                    <a class="menu-item" href="/tags">Tag Cloud</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Home Page</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                    <a class="menu-item" href="/tags">Tag Cloud</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">微观经济学：第四章 生产技术</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">不晓得在忙什么的阿邱</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 10, 2021&nbsp;&nbsp;8:17:29</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Learning-Notes/">Learning Notes</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="第四章-生产技术"><a href="#第四章-生产技术" class="headerlink" title="第四章 生产技术"></a>第四章 生产技术</h1><h2 id="第一节-厂商和生产的基本概念"><a href="#第一节-厂商和生产的基本概念" class="headerlink" title="第一节 厂商和生产的基本概念"></a>第一节 厂商和生产的基本概念</h2><h3 id="一、厂商"><a href="#一、厂商" class="headerlink" title="一、厂商"></a>一、厂商</h3><p><strong>【定义4-1】厂商</strong>：生产者亦称厂商或企业，指能够作出统一的生产决策的单个经济单位。</p>
+<h4 id="1-厂商的组织形式"><a href="#1-厂商的组织形式" class="headerlink" title="1. 厂商的组织形式"></a>1. 厂商的组织形式</h4><ul>
+<li>个人企业；</li>
+<li>合伙制企业；</li>
+<li>公司制企业。</li>
+</ul>
+<h4 id="2-厂商的目标"><a href="#2-厂商的目标" class="headerlink" title="2. 厂商的目标"></a>2. 厂商的目标</h4><p>关于厂商行为的基本假设：厂商以追求利润最大化为目标——它是经济学“理性人”假设在厂商理论中的体现。</p>
+<h3 id="二、生产"><a href="#二、生产" class="headerlink" title="二、生产"></a>二、生产</h3><p><strong>【定义4-2】生产技术</strong>：指生产过程中投入量与产出量之间的数量关系，它通常用生产函数来表示。</p>
+<h4 id="1-生产函数"><a href="#1-生产函数" class="headerlink" title="1. 生产函数"></a>1. 生产函数</h4><p><strong>【定义4-3】生产函数</strong>：生产函数表示在一定时期内在给定的技术条件下，生产中所使用的各种生产要素的数量与所能生产的最大化产量之间的关系。</p>
+<p>一般形式：<br>$$<br>Q=f(X_1,X_2,…,X_n)<br>$$</p>
+<ul>
+<li>最大产量——$Q$（最大产量是对生产函数本质的规定，它强调生产函数所体现的生产技术是最有效率的）；</li>
+<li>生产要素——X。</li>
+</ul>
+<p>简化形式：<br>$$<br>Q=f(L,K)<br>$$</p>
+<ul>
+<li>劳动投入量——$L$；</li>
+<li>资本投入量——$K$。</li>
+</ul>
+<h4 id="2-生产的短期和长期"><a href="#2-生产的短期和长期" class="headerlink" title="2. 生产的短期和长期"></a>2. 生产的短期和长期</h4><p><strong>【定义4-4】生产的短期/短期生产（Short-run Production）</strong>：指生产者来不及调整全部生产要素的数量，至少有一种生产要素的数量是固定不变的生产周期。</p>
+<p><strong>【定义4-5】生产的长期/长期生产（Long-run Production）</strong>：指生产者可以调整全部生产要素的生产周期。</p>
+<h2 id="第二节-短期生产函数"><a href="#第二节-短期生产函数" class="headerlink" title="第二节 短期生产函数"></a>第二节 短期生产函数</h2><p>短期生产函数：<br>$$<br>Q=(L,\overline K)<br>$$</p>
+<ul>
+<li>劳动投入量——$L$；</li>
+<li>固定的资本投入量——$\overline K$。</li>
+</ul>
+<h3 id="一、总产量、平均产量和边际产量的概念"><a href="#一、总产量、平均产量和边际产量的概念" class="headerlink" title="一、总产量、平均产量和边际产量的概念"></a>一、总产量、平均产量和边际产量的概念</h3><h4 id="1-资本投入量固定，劳动投入量可变"><a href="#1-资本投入量固定，劳动投入量可变" class="headerlink" title="1. 资本投入量固定，劳动投入量可变"></a>1. 资本投入量固定，劳动投入量可变</h4><p><strong>【定义4-6】总产量（TP，Total Product）</strong>：表示与可变要素劳动的每一投入数量相对应的最大总产量。<br>$$<br>TP_L=f(L,\overline K)<br>$$</p>
+<ul>
+<li>劳动的总产量——$TP_L$。</li>
+</ul>
+<p><strong>【定义4-7】平均产量（AP，Average Product）</strong>：表示平均每一单位可变要素劳动的投入量所生产的产量。<br>$$<br>AP_L=\frac {TP_L(L,\overline K)}{L}<br>$$</p>
+<ul>
+<li>劳动的平均产量——$AP_L$。</li>
+</ul>
+<p><strong>【定义4-8】边际产量（MP，Marginal Product）</strong>：表示增加一单位可变要素劳动的投入量所增加的产量。<br>$$<br>MP_L=\frac {\Delta TP_L(L,\overline K)}{\Delta L}<br>$$</p>
+<ul>
+<li>劳动的边际产量——$MP_L$。</li>
+</ul>
+<p>或者：<br>$$<br>MP_L= \lim \limits_{\Delta L→0} \frac {\Delta TP_L(L,\overline K)}{\Delta L} = \frac {dTP_L(L,\overline K)}{dL}<br>$$</p>
+<h4 id="2-劳动投入量固定，资本投入量可变"><a href="#2-劳动投入量固定，资本投入量可变" class="headerlink" title="2. 劳动投入量固定，资本投入量可变"></a>2. 劳动投入量固定，资本投入量可变</h4><p>$$<br>TP_K=f(\overline L,K)<br>$$</p>
+<p>$$<br>AP_K=\frac {TP_K(\overline L,K)}{K}<br>$$</p>
+<p>$$<br>MP_K=\frac {\Delta TP_K(\overline L,K)}{\Delta K}<br>$$</p>
+<p>或者：<br>$$<br>MP_K= \lim \limits_{\Delta K→0} \frac {\Delta TP_K(\overline L,K)}{\Delta K} = \frac {dTP_K(\overline L,K)}{dK}<br>$$</p>
+<h3 id="二、边际报酬递减规律"><a href="#二、边际报酬递减规律" class="headerlink" title="二、边际报酬递减规律"></a>二、边际报酬递减规律</h3><h4 id="1-边际报酬递减规律"><a href="#1-边际报酬递减规律" class="headerlink" title="1. 边际报酬递减规律"></a>1. 边际报酬递减规律</h4><p><strong>【规律/定理】边际报酬递减规律/边际产量递减规律/边际收益递减规律（Law of Diminishing Marginal Returns）</strong>：在技术水平和其他因素不变的条件下，在连续等量地将某一种可变生产要素投入增加到其他一种或几种数量固定不变的生产要素上去的过程中，该可变要素的边际产量先是递增的，在这种可变要素的投入量增加到一定数量之后，其边际产量便是递减的了。</p>
+<ul>
+<li><p>成立的原因：在任何产品的短期生产中，一种可变要素和其他固定要素之间均存在一个最佳的投入数量组合，换言之，可变要素投入量与固定要素投入量应该互相匹配。</p>
+</li>
+<li><p>前提条件：生产技术给定；其他因素保持不变。</p>
+</li>
+<li><p>强调：在短期生产中，随着一种可变要素的投入量的持续增加，其边际产量最终必然会递减，甚至会出现边际产量为负的糟糕情形。</p>
+</li>
+</ul>
+<h4 id="2-技术进步与边际产量曲线"><a href="#2-技术进步与边际产量曲线" class="headerlink" title="2. 技术进步与边际产量曲线"></a>2. 技术进步与边际产量曲线</h4><p>任何前提条件的变化都会导致边际产量曲线的变动。目前为止分析的仅是技术进步导致边际产量曲线变动的一种情形。至于在经济理论研究和分析实际经济问题中所涉及的边际产量曲线的各种变化形态，则均需视具体情况而定。</p>
+<h3 id="三、总产量、平均产量和边际产量的相互关系"><a href="#三、总产量、平均产量和边际产量的相互关系" class="headerlink" title="三、总产量、平均产量和边际产量的相互关系"></a>三、总产量、平均产量和边际产量的相互关系</h3><h4 id="1-边际产量和总产量的关系"><a href="#1-边际产量和总产量的关系" class="headerlink" title="1. 边际产量和总产量的关系"></a>1. 边际产量和总产量的关系</h4><h4 id="2-边际产量和平均产量的关系"><a href="#2-边际产量和平均产量的关系" class="headerlink" title="2. 边际产量和平均产量的关系"></a>2. 边际产量和平均产量的关系</h4><h4 id="3-平均产量和总产量的关系"><a href="#3-平均产量和总产量的关系" class="headerlink" title="3. 平均产量和总产量的关系"></a>3. 平均产量和总产量的关系</h4><h3 id="四、短期生产的三个阶段"><a href="#四、短期生产的三个阶段" class="headerlink" title="四、短期生产的三个阶段"></a>四、短期生产的三个阶段</h3><h2 id="第三节-长期生产函数"><a href="#第三节-长期生产函数" class="headerlink" title="第三节 长期生产函数"></a>第三节 长期生产函数</h2><h3 id="一、等产量曲线"><a href="#一、等产量曲线" class="headerlink" title="一、等产量曲线"></a>一、等产量曲线</h3><h3 id="二、不同形状的等产量曲线"><a href="#二、不同形状的等产量曲线" class="headerlink" title="二、不同形状的等产量曲线"></a>二、不同形状的等产量曲线</h3><h4 id="1-固定替代比例的生产函数（也被称为线性生产函数）"><a href="#1-固定替代比例的生产函数（也被称为线性生产函数）" class="headerlink" title="1. 固定替代比例的生产函数（也被称为线性生产函数）"></a>1. 固定替代比例的生产函数（也被称为线性生产函数）</h4><p><strong>【定义】固定替代比例的生产函数</strong>：</p>
+<h4 id="2-固定投入比例的生产函数（也被称为里昂惕夫生产函数）"><a href="#2-固定投入比例的生产函数（也被称为里昂惕夫生产函数）" class="headerlink" title="2. 固定投入比例的生产函数（也被称为里昂惕夫生产函数）"></a>2. 固定投入比例的生产函数（也被称为里昂惕夫生产函数）</h4><p><strong>【定义】固定投入比例的生产函数</strong>：</p>
+<h4 id="3-柯布-道格拉斯生产函数"><a href="#3-柯布-道格拉斯生产函数" class="headerlink" title="3. 柯布-道格拉斯生产函数"></a>3. 柯布-道格拉斯生产函数</h4><p><strong>【定义】柯布-道格拉斯生产函数</strong>：</p>
+<h3 id="三、规模报酬"><a href="#三、规模报酬" class="headerlink" title="三、规模报酬"></a>三、规模报酬</h3><p><strong>【定义】规模报酬不变</strong>：</p>
+<p><strong>【定义】规模报酬递增</strong>：</p>
+<p><strong>【定义】规模报酬递减</strong>：</p>
+<p><strong>【规律/定理】规模报酬变化规律</strong>：</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>不晓得在忙什么的阿邱</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>如转载请注明出处。</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Microeconomics/"># Microeconomics</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/05/09/Python%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/">Python语法基础</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 不晓得在忙什么的阿邱 
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
