@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="不晓得在忙什么的阿邱">
+
+
+
+
+
+<title>【微观经济学】第二章 需求、供给和均衡价格 | 不晓得在忙什么的阿邱</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Home Page</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                    <a class="menu-item" href="/tags">Tag Cloud</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Home Page</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/categories">Categories</a>
+                
+                    <a class="menu-item" href="/tags">Tag Cloud</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">【微观经济学】第二章 需求、供给和均衡价格</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">不晓得在忙什么的阿邱</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 25, 2021&nbsp;&nbsp;8:24:01</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Learning-Notes/">Learning Notes</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="第二章-需求、供给和均衡价格"><a href="#第二章-需求、供给和均衡价格" class="headerlink" title="第二章 需求、供给和均衡价格"></a>第二章 需求、供给和均衡价格</h1><h2 id="第一节-微观经济学的特点"><a href="#第一节-微观经济学的特点" class="headerlink" title="第一节 微观经济学的特点"></a>第一节 微观经济学的特点</h2><h3 id="一、微观经济学的研究对象"><a href="#一、微观经济学的研究对象" class="headerlink" title="一、微观经济学的研究对象"></a>一、微观经济学的研究对象</h3><h4 id="1-稀缺性与选择"><a href="#1-稀缺性与选择" class="headerlink" title="1.  稀缺性与选择"></a>1.  稀缺性与选择</h4><p>绝对稀缺与相对稀缺。</p>
+<h4 id="2-理性选择与权衡取舍"><a href="#2-理性选择与权衡取舍" class="headerlink" title="2. 理性选择与权衡取舍"></a>2. 理性选择与权衡取舍</h4><p>理性人假设：每一个从事经济活动的人所采取的行动都是力图以自己最小的经济代价去获得自己最大的经济利益。</p>
+<h4 id="3-市场经济：个人利益与社会利益"><a href="#3-市场经济：个人利益与社会利益" class="headerlink" title="3. 市场经济：个人利益与社会利益"></a>3. 市场经济：个人利益与社会利益</h4><ul>
+<li><p>个人利益：每个人的理性选择都是追逐自己的最大利益，并在买卖交易活动中实现各自的最大利益目标。消费者——最大效用；厂商——最大利润。</p>
+</li>
+<li><p>社会利益：市场价格机制的自发调节，引导着买者和卖者的行为，并在竞争市场条件下实现了社会福利的最大化。</p>
+<blockquote>
+<p>“人们在追最自己的利益的时候，被一只‘看不见的手’引导着，结果却经常促进了社会的利益。”——亚当·斯密</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="4-政府的作用"><a href="#4-政府的作用" class="headerlink" title="4. 政府的作用"></a>4. 政府的作用</h4><ul>
+<li>市场经济需要政府对产权的保护，以及对市场经济秩序和规则的维护；</li>
+<li>市场经济还存在一些自身无法解决的问题（市场失灵），也需要政府来解决；</li>
+<li>从经济社会的效率和公平两大目标的角度而言，政府在促进效率和公平方面都发挥着重要的作用。</li>
+</ul>
+<h4 id="5-微观经济学对个体经济单位考察的三个层次"><a href="#5-微观经济学对个体经济单位考察的三个层次" class="headerlink" title="5. 微观经济学对个体经济单位考察的三个层次"></a>5. 微观经济学对个体经济单位考察的三个层次</h4><ul>
+<li><p>分析单个消费者和单个生产者的经济行为；</p>
+</li>
+<li><p>分析单个市场的均衡价格的决定；</p>
+</li>
+<li><p>分析所有单个市场均衡价格的同时决定。</p>
+</li>
+</ul>
+<h3 id="二、对微观经济学的鸟瞰"><a href="#二、对微观经济学的鸟瞰" class="headerlink" title="二、对微观经济学的鸟瞰"></a>二、对微观经济学的鸟瞰</h3><h2 id="第二节-需求"><a href="#第二节-需求" class="headerlink" title="第二节 需求"></a>第二节 需求</h2><h3 id="一、价格与需求数量：需求曲线"><a href="#一、价格与需求数量：需求曲线" class="headerlink" title="一、价格与需求数量：需求曲线"></a>一、价格与需求数量：需求曲线</h3><h4 id="1-需求函数"><a href="#1-需求函数" class="headerlink" title="1. 需求函数"></a>1. 需求函数</h4><p><strong>【定义2-1】需求数量/需求量（Q^d^，Quantity of Demand）</strong>：指消费者在一定时期内愿意并且能够购买某种商品的数量。</p>
+<table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th>主要影响因素</th>
+<th>对需求数量的影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td>该商品的价格</td>
+<td>商品价格提高，需求数量减少；反之，需求数量增加</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>消费者收入水平</td>
+<td>收入水平提高，需求数量增加；反之，需求数量减少</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>相关商品的价格</td>
+<td>取决于是替代品还是互补品</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td>消费者的偏好</td>
+<td>偏好程度增强，需求数量增加；反之，需求数量减少</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td>消费者对该商品的价格预期</td>
+<td>价格预期提高，需求数量减少；反之，需求数量增加</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td>消费者人数</td>
+<td>消费者人数增加，需求数量增加；反之，需求数量减少</td>
+</tr>
+</tbody></table>
+<p><strong>【定义2-2】需求函数（Demand Function）</strong>：需求函数表示一种商品的需求数量和影响该需求数量的各种因素之间的相互关系。</p>
+<p>由于一种商品的价格是决定需求数量的最基本的因素，所以我们假定其他因素不变，仅分析一种商品的价格对该商品需求数量的影响，即把一种商品的需求数量仅看成是这种商品的价格的函数：<br>$$<br>Q^d=f(P)<br>$$</p>
+<ul>
+<li>商品的价格——$P$；</li>
+<li>商品的需求数量——$Q^d$​​。</li>
+</ul>
+<p>为了简化分析过程，不影响结论的前提下，大多在分析中使用线性需求函数：<br>$$<br>Q^d= \alpha-\beta·P<br>$$</p>
+<ul>
+<li>$\alpha$、$\beta$ 为常数，且 $\alpha$、$\beta$​​ &gt;0。该函数所对应的需求曲线为一条直线。</li>
+</ul>
+<p><strong>【定义2-3】需求（D，Demand）</strong>：一种商品的需求是指在其他因素不变的条件下消费者在一定时期内各种可能的价格水平上愿意并且能够购买的该商品的数量。</p>
+<h4 id="2-需求曲线"><a href="#2-需求曲线" class="headerlink" title="2. 需求曲线"></a>2. 需求曲线</h4><p><strong>【定义2-4】需求曲线（Demand Curve）</strong>：需求曲线是以几何图形来表示商品的价格和需求量之间的函数关系。需求曲线的表达式，是需求函数的反函数。</p>
+<ul>
+<li>需求曲线可以是曲线，也可以是直线：当需求函数为线性函数时，需求曲线是一条直线，直线上各点斜率相等；当需求函数为非线性函数时，需求曲线时一条曲线，曲线上各点斜率不相等。</li>
+</ul>
+<h4 id="3-需求定理"><a href="#3-需求定理" class="headerlink" title="3. 需求定理"></a>3. 需求定理</h4><p><strong>【规律/定理2-1】需求定理（Law of Demand）</strong>：在其他因素保持不变的条件下，一种商品的价格上升，则对该商品的需求量减少；一种商品的价格下降，则对该商品的需求量增加。简言之，商品的价格和需求量呈反方向变动。</p>
+<h3 id="二、沿着需求曲线移动和需求曲线位置的移动"><a href="#二、沿着需求曲线移动和需求曲线位置的移动" class="headerlink" title="二、沿着需求曲线移动和需求曲线位置的移动"></a>二、沿着需求曲线移动和需求曲线位置的移动</h3><h4 id="1-需求量的变动：沿着需求曲线的移动"><a href="#1-需求量的变动：沿着需求曲线的移动" class="headerlink" title="1. 需求量的变动：沿着需求曲线的移动"></a>1. 需求量的变动：沿着需求曲线的移动</h4><p><strong>【规律/定理2-2】需求量的变动（Movement Along）：沿着需求曲线的移动</strong>：在其他因素保持不变的条件下，仅由商品自身价格变化所导致的商品需求数量的变化，被称为需求量的变动。</p>
+<ul>
+<li>价格上升，需求量下降；价格下降，需求量上升。</li>
+</ul>
+<h4 id="2-需求的变动：需求曲线位置的移动"><a href="#2-需求的变动：需求曲线位置的移动" class="headerlink" title="2. 需求的变动：需求曲线位置的移动"></a>2. 需求的变动：需求曲线位置的移动</h4><p><strong>【规律/定理2-3】需求的变动（Shift）：需求曲线位置的移动</strong>：除商品自身价格以外的其他因素变化所导致的商品需求数量的变化，被称为需求的变动。</p>
+<ul>
+<li>在任何一个既定的价格水平上，若其他因素的变动使得该商品的需求数量增加了，则称为需求的增加，需求曲线位置右移；若其他因素的变动使得该商品的需求数量减少了，则称为需求的减少，需求曲线左移。</li>
+</ul>
+<h2 id="第三节-供给"><a href="#第三节-供给" class="headerlink" title="第三节 供给"></a>第三节 供给</h2><h3 id="一、价格与供给数量：供给曲线"><a href="#一、价格与供给数量：供给曲线" class="headerlink" title="一、价格与供给数量：供给曲线"></a>一、价格与供给数量：供给曲线</h3><h4 id="1-供给函数"><a href="#1-供给函数" class="headerlink" title="1. 供给函数"></a>1. 供给函数</h4><p><strong>【定义2-5】供给数量/供给量（Q^s^，Quantity of Supply）</strong>：指生产者在一定时期内愿意并且能够提供出售的某种商品的数量。</p>
+<table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th>主要影响因素</th>
+<th>对供给数量的影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td>该商品的价格</td>
+<td>商品价格提高，供给数量增加；反之，供给数量减少</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>生产成本</td>
+<td>生产成本提高，供给数量减少；反之，供给数量增加</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>生产技术水平</td>
+<td>生产技术水平提高，供给数量增加；反之，供给数量减少</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td>相关商品的价格</td>
+<td>取决于是替代品还是互补品</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td>生产者对该商品的价格预期</td>
+<td>价格预期提高，供给数量增加；反之，供给数量减少</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td>生产者人数</td>
+<td>生产者人数增加，供给数量增加；反之，供给数量减少</td>
+</tr>
+</tbody></table>
+<p><strong>【定义2-6】供给函数（Supply Function）</strong>：供给函数表示一种商品的供给数量和影响该供给数量的各种因素之间的相互关系。</p>
+<p>由于一种商品的价格是决定供给数量的最基本的因素，所以我们假定其他因素不变，仅分析一种商品的价格对该商品供给数量的影响，即把一种商品的供给数量仅看成是这种商品的价格的函数：<br>$$<br>Q^s=f(P)<br>$$</p>
+<ul>
+<li>商品的价格——$P$；</li>
+<li>商品的供给数量——$Q^s$​​​。</li>
+</ul>
+<p>为了简化分析过程，不影响结论的前提下，大多在分析中使用线性供给函数：<br>$$<br>Q^s= -\delta+\gamma·P<br>$$</p>
+<ul>
+<li>$\delta$​、$\gamma$ 为常数，且 $\delta$、$\gamma$​​​ &gt;0。该函数所对应的供给曲线为一条直线。</li>
+</ul>
+<p><strong>【定义2-7】供给（S，Supply）</strong>：一种商品的供给是指在其他因素不变的条件下生产者在一定时期内各种可能的价格水平上愿意并且能够提供出售的该商品的数量。</p>
+<h4 id="2-供给曲线"><a href="#2-供给曲线" class="headerlink" title="2. 供给曲线"></a>2. 供给曲线</h4><p><strong>【定义2-8】供给曲线（Supply Curve）</strong>：供给曲线是以几何图形来表示商品的价格和供给数量之间的函数关系。供给曲线的表达式，是供给函数的反函数。</p>
+<ul>
+<li>供给曲线可以是曲线，也可以是直线：当供给函数为线性函数时，供给曲线是一条直线，直线上各点斜率相等；当供给函数为非线性函数时，供给曲线时一条曲线，曲线上各点斜率不相等。</li>
+</ul>
+<h4 id="3-供给定理"><a href="#3-供给定理" class="headerlink" title="3. 供给定理"></a>3. 供给定理</h4><p><strong>【规律/定理2-4】供给定理（Law of Supply）</strong>：在其他因素保持不变的条件下，一种商品的价格上升，则该商品的供给量增加；一种商品的价格下降，则该商品的供给量减少。简言之，商品的价格和供给量呈同方向变动。</p>
+<h3 id="二、沿着供给曲线的移动和供给曲线位置的移动"><a href="#二、沿着供给曲线的移动和供给曲线位置的移动" class="headerlink" title="二、沿着供给曲线的移动和供给曲线位置的移动"></a>二、沿着供给曲线的移动和供给曲线位置的移动</h3><h4 id="1-供给量的变动：沿着供给曲线的移动"><a href="#1-供给量的变动：沿着供给曲线的移动" class="headerlink" title="1. 供给量的变动：沿着供给曲线的移动"></a>1. 供给量的变动：沿着供给曲线的移动</h4><p><strong>【规律/定理2-5】供给量的变动（Movement Along）：沿着供给曲线的移动</strong>：在其他因素保持不变的条件下，仅由商品自身价格变化所导致的商品供给量的变化，被称为供给量的变动。</p>
+<ul>
+<li>价格上升，供给量上升；价格下降，供给量下降。</li>
+</ul>
+<h4 id="2-供给的变动：供给曲线位置的移动"><a href="#2-供给的变动：供给曲线位置的移动" class="headerlink" title="2. 供给的变动：供给曲线位置的移动"></a>2. 供给的变动：供给曲线位置的移动</h4><p><strong>【规律/定理2-6】供给的变动（Shift）：供给曲线位置的移动</strong>：除商品自身价格以外的其他因素变化所导致的商品供给数量的变化，被称为供给的变动。</p>
+<ul>
+<li>在任何一个既定的价格水平上，若其他因素的变动使得该商品的供给数量增加了，则称为供给的增加，需求曲线位置右移；若其他因素的变动使得该商品的供给数量减少了，则称为供给的减少，需求曲线左移。</li>
+</ul>
+<h2 id="第四节-均衡价格"><a href="#第四节-均衡价格" class="headerlink" title="第四节 均衡价格"></a>第四节 均衡价格</h2><h3 id="一、均衡的含义"><a href="#一、均衡的含义" class="headerlink" title="一、均衡的含义"></a>一、均衡的含义</h3><p><strong>【定义2-9】均衡（Equilibrium）</strong>：均衡最一般的含义是指经济事物中有关的变量在一定条件的相互作用下所达到的一种相对静止的状态。</p>
+<p><strong>【定义2-10】局部均衡（Partial Equilibrium）</strong>：就单个市场或部分市场的供求与价格之间的关系和均衡状态进行分析。</p>
+<p><strong>【定义2-11】一般均衡（General Equilibrium）</strong>：就一个经济社会中的所有市场的供求与价格之间的关系和均衡状态进行分析。</p>
+<h3 id="二、均衡价格的决定"><a href="#二、均衡价格的决定" class="headerlink" title="二、均衡价格的决定"></a>二、均衡价格的决定</h3><p><strong>【定义2-12】均衡价格（Equilibrium Price）</strong>：一种商品的均衡价格是指该种商品的市场需求量和市场供给量相等时的价格。</p>
+<p><strong>【定义2-13】均衡数量（Equilibrium Quantity）</strong>：在均衡价格水平上的相等的供求数量被称为均衡数量。</p>
+<p><strong>【定义2-14】市场出清（Market Clearing）</strong>：在市场的均衡价格水平上的需求量和供给量相等的状态，被称为市场出清的状态。</p>
+<ul>
+<li>从几何意义上说，一种商品市场的均衡出现在该商品的市场需求曲线和市场供给曲线的交点上，该交点被称为均衡点。均衡点上的价格和相等的供求量分别称为均衡价格和均衡数量。</li>
+<li>商品的均衡价格表现为商品市场上需求和供给这两种相反的力量共同作用的结果，它是在市场供求力量的自发调节下形成的：当商品价格低于均衡价格时，供不应求，价格会持续上升，生产者增加生产，直到达到均衡点；当商品价格高于均衡价格时，供过于求，价格会持续下降，生产者减少生产，直到达到均衡点。</li>
+</ul>
+<h3 id="三、均衡价格的变动"><a href="#三、均衡价格的变动" class="headerlink" title="三、均衡价格的变动"></a>三、均衡价格的变动</h3><h4 id="1-需求变动的影响"><a href="#1-需求变动的影响" class="headerlink" title="1. 需求变动的影响"></a>1. 需求变动的影响</h4><p><strong>【规律/定理2-7】需求变动的影响</strong>：在供给不变的情况下，需求增加会使需求曲线向右平移，从而使得均衡价格和均衡数量都提高；需求减少会使需求曲线向左平移，从而使得均衡价格和均衡数量都下降。</p>
+<h4 id="2-供给变动的影响"><a href="#2-供给变动的影响" class="headerlink" title="2. 供给变动的影响"></a>2. 供给变动的影响</h4><p><strong>【规律/定理2-8】供给变动的影响</strong>：在需求不变的情况下，供给增加会使供给曲线向右平移，从而使得均衡价格下降、均衡数量增加；供给减少会使供给曲线向左平移，从而使得均衡价格上升、均衡数量减少。</p>
+<p><strong>【规律/定理2-9】供求定理（Law of Supply and Demand）</strong>：在其他条件不变的情况下，需求变动分别引起均衡价格和均衡数量的同方向变动；供给变动引起均衡价格的反方向变动，引起均衡数量的同方向变动。</p>
+<h4 id="3-供给和需求同时变动的影响"><a href="#3-供给和需求同时变动的影响" class="headerlink" title="3. 供给和需求同时变动的影响"></a>3. 供给和需求同时变动的影响</h4><p>当市场上供求两种力量同时发生变化时，需综合具体情况来分析供求变化对均衡价格和均衡数量的影响。</p>
+<h3 id="四、均衡价格决定的数学模型"><a href="#四、均衡价格决定的数学模型" class="headerlink" title="四、均衡价格决定的数学模型"></a>四、均衡价格决定的数学模型</h3><p>这部分就是用数学模型对上面的三种情况进行了再次验证，实际上就是解方程组：<br>$$<br>①Q^d=\alpha-\beta·P；<br>②Q^s= -\delta+\gamma·P；<br>③Q^d=Q^s=\overline Q<br>$$</p>
+<ul>
+<li>$\alpha$、$\beta$ 、$\delta$、$\gamma$ 为常数，且 $\alpha$、$\beta$ 、$\delta$、$\gamma$ &gt;0。</li>
+</ul>
+<p>在以上均衡价格数学模型的分析中，在既定的需求函数和供给函数的条件下，求解均衡价格和均衡数量，这属于静态分析。</p>
+<p>当消费者收入增加、厂商生产成本增加导致模型的外生变量发生变化时，求解相应的内生变量即均衡价格和均衡数量，并对不同条件下的均衡状态进行比较分析，这便属于比较静态分析。</p>
+<h3 id="五、价格与资源配置"><a href="#五、价格与资源配置" class="headerlink" title="五、价格与资源配置"></a>五、价格与资源配置</h3><p>稀缺资源的有效配置是经济学研究的中心问题。在市场经济中，价格机制对资源配置发挥着重要的作用：</p>
+<p>对于消费者来说，通过对各种商品价格的比较，消费者理性地决定不同商品的购买数量，并且根据商品价格的变化及时调整商品的购买组合，从而在有限的收入条件下获得尽可能大的效用。</p>
+<p>对于生产者来说，当商品的市场价格较高且有利润时，生产者就有激励增加该商品的产量；相反，当商品的市场价格较低且有亏损时，生产者就会减少该商品的产量。</p>
+<p>对于对于一个经济社会来说，在竞争性商品市场上，无数的买者和卖者各自追求个人利益的经济决策是分散的，而价格机制协调与引导着市场趋向需求量和供给量相等的均衡状态，实现稀缺资源的有效配置。</p>
+<h2 id="第五节-需求弹性和供给弹性"><a href="#第五节-需求弹性和供给弹性" class="headerlink" title="第五节 需求弹性和供给弹性"></a>第五节 需求弹性和供给弹性</h2><h3 id="一、弹性的一般含义"><a href="#一、弹性的一般含义" class="headerlink" title="一、弹性的一般含义"></a>一、弹性的一般含义</h3><h3 id="二、需求的价格弹性含义"><a href="#二、需求的价格弹性含义" class="headerlink" title="二、需求的价格弹性含义"></a>二、需求的价格弹性含义</h3><h3 id="三、需求的价格弹性：弧弹性"><a href="#三、需求的价格弹性：弧弹性" class="headerlink" title="三、需求的价格弹性：弧弹性"></a>三、需求的价格弹性：弧弹性</h3><h3 id="四、需求的价格弹性：点弹性"><a href="#四、需求的价格弹性：点弹性" class="headerlink" title="四、需求的价格弹性：点弹性"></a>四、需求的价格弹性：点弹性</h3><h3 id="五、需求的价格弹性和厂商的销售收入"><a href="#五、需求的价格弹性和厂商的销售收入" class="headerlink" title="五、需求的价格弹性和厂商的销售收入"></a>五、需求的价格弹性和厂商的销售收入</h3><h3 id="六、影响需求的价格弹性的因素"><a href="#六、影响需求的价格弹性的因素" class="headerlink" title="六、影响需求的价格弹性的因素"></a>六、影响需求的价格弹性的因素</h3><h3 id="七、弹性概念的扩大"><a href="#七、弹性概念的扩大" class="headerlink" title="七、弹性概念的扩大"></a>七、弹性概念的扩大</h3><h4 id="1-供给的价格弹性"><a href="#1-供给的价格弹性" class="headerlink" title="1. 供给的价格弹性"></a>1. 供给的价格弹性</h4><h4 id="2-需求的交叉价格弹性"><a href="#2-需求的交叉价格弹性" class="headerlink" title="2. 需求的交叉价格弹性"></a>2. 需求的交叉价格弹性</h4><h4 id="3-需求的收入弹性"><a href="#3-需求的收入弹性" class="headerlink" title="3. 需求的收入弹性"></a>3. 需求的收入弹性</h4><h2 id="第六节-运用需求、供给和均衡价格的事例"><a href="#第六节-运用需求、供给和均衡价格的事例" class="headerlink" title="第六节 运用需求、供给和均衡价格的事例"></a>第六节 运用需求、供给和均衡价格的事例</h2>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>不晓得在忙什么的阿邱</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>如转载请注明出处。</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Microeconomics/"># Microeconomics</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/07/25/%E3%80%90%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E3%80%91%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%94%9F%E4%BA%A7%E6%8A%80%E6%9C%AF/">【微观经济学】第四章 生产技术</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 不晓得在忙什么的阿邱 
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
